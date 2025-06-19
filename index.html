@@ -1,0 +1,384 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pix‑Nova</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #000;
+      --text: #FEDC5D;
+      --accent-yellow: #FEDC5D;
+      --accent-blue: #5D62FB;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: #FEDC5D;
+    }
+
+    html,
+    body {
+      font-family: 'Cinzel Decorative', serif;
+      background: var(--bg);
+      color: #1A1A1A;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--bg);
+      z-index: 1000;
+      text-decoration: none;
+      background: linear-gradient(to right, #63cfe7, #217676, #63cfe7);
+      color: #1A1A1A;
+    }
+
+    .logo-container {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: xx-large;
+
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text);
+      text-transform: uppercase;
+      font-size: 20px;
+      transition: color 0.3s;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--accent-yellow);
+    }
+
+    .hero {
+      position: relative;
+      height: 90vh;
+      background: url('https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?cs=srgb&dl=pexels-bella-white-201200-635279.jpg&fm=jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 80px;
+      color: white;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      max-width: 700px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .cta {
+      padding: 12px 24px;
+      background: var(--accent-yellow);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-radius: 30px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .cta:hover {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    .scroll-animated {
+      background: url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: 120px 20px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      color: black;
+    }
+
+    .scroll-animated .line {
+      font-size: 5vw;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(50px);
+      will-change: opacity, transform;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #63cfe7, #217676, #63cfe7);
+    }
+
+    #typeLine {
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 2s steps(20, end) forwards;
+    }
+
+    @keyframes typing {
+      to {
+        width: 100%;
+      }
+    }
+
+    .empower,
+    footer,
+    .cta-banner,
+    .values {
+      background: #111;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 50vh 50vh;
+      gap: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .panel {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.8s ease, opacity 0.8s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">PX</div>
+    <div class="nav-wrapper">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#Our Story">Our Story</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Order</a></li>
+        </ul>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main style="padding-top:100px;">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1>Capturing Memories That Stick</h1>
+        <a href="#values" class="cta">Start a Journey</a>
+      </div>
+    </section>
+
+    <!-- Scroll-Animated Text Section -->
+    <section class="scroll-animated">
+      <div class="line" id="typeLine">You have the power</div>
+      <div class="line">to make people feel.</div>
+      <div class="line">Think. Laugh. Cry.</div>
+      <div class="line">Share. Change.</div>
+    </section>
+
+    <!-- 4-Panel Animated Grid Section -->
+    <section class="panel-grid" id="Our Story">
+      <div class="panel"
+        style="background-image: url('https://iwantitnow.ae/cdn/shop/files/PhotoFridgeMagnetsv6.png?v=1711202276');">
+        Memory</div>
+      <div class="panel"
+        style="background-image: url('https://c4.staticsfly.com/asset/fetch/cs/MAGNET-117037-11854-MERCHMEDIUM_THUMB/thumbnail.preview/v1');">
+        Emotion</div>
+      <div class="panel"
+        style="background-image: url('https://cms.cloudinary.vpsvc.com/image/upload/c_scale,dpr_auto,f_auto,q_70,w_auto:50:550/legacy_dam/en-sg/ANZS430-product-tile-photo-magnet-001_SG');">
+        Story</div>
+      <div class="panel"
+        style="background-image: url('https://www.arloandco.com.au/cdn/shop/files/bamboo-photo-magnet-set-887786.jpg?v=1721002962&width=320');">
+        Nostalgia</div>
+    </section>
+
+    <!-- Empowerment Section -->
+    <section class="empower" data-aos="fade-up">
+      <div class="empower-content" style="max-width:600px; margin:auto; text-align:center; padding:120px 20px 100px;">
+        <h2>You have the power to create moments that last</h2>
+        <p>Every magnet we craft captures your story — memories made tangible, emotions shared, and nostalgia carried
+          forward.</p>
+        <a href="#contact" class="cta" style="margin-top: 40px; display: inline-block;">Unlock Your Story</a>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="values" data-aos="fade-up"
+      style="background: url('https://images.unsplash.com/photo-1588854337119-3b1b9c0d4db0?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; background-attachment: fixed; color: white;">
+      <div
+        style="max-width: 1000px; margin: auto; padding: 100px 20px; text-align: center; background: rgba(0, 0, 0, 0.7); border-radius: 20px;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 30px;">About Us</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px;">
+          <img src="https://clovermags.com/cdn/shop/files/71.png?v=1726187079&width=533" alt="Memory magnet"
+            style="width: 45%; max-width: 400px; border-radius: 12px;" />
+          <img
+            src="https://www.republicwest.ca/cdn/shop/files/dada1695-f586-4b8b-b6de-085a990bf1bf_1500x.jpg?v=1731013418"
+            alt="Captured emotion" style="width: 45%; max-width: 400px; border-radius: 12px;" />
+        </div>
+        <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px;">
+          At <strong>Pix‑Nova</strong>, we believe in the magic of memory. We're a creative studio specializing in
+          premium photo magnets that don’t just decorate spaces — they tell stories. From candid family moments to
+          milestone celebrations, our mission is to help you capture, cherish, and share your most meaningful memories
+          in beautiful, tangible form.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.7;">
+          What started as a passion project quickly evolved into a heartfelt brand that puts storytelling and emotion at
+          the center of every design. We take pride in thoughtful craftsmanship, personal touches, and ensuring each
+          order brings a smile. Whether it’s for your fridge, locker, workspace, or a surprise gift —
+          <strong>Pix‑Nova</strong> is where your moments stick.
+        </p>
+      </div>
+    </section>
+   <section id="order" class="empower" style="padding: 100px 20px;">
+  <div style="max-width: 600px; margin: auto; text-align: center;">
+    <h2>Place Your Order</h2>
+    <form id="orderForm" style="margin-top: 20px;">
+      <input name="name" placeholder="Your Name" required style="color: #000; width:100%; padding:10px; margin:10px 0;" />
+      <input name="number" placeholder="Your Number" required style="color: #000; width:100%; padding:10px; margin:10px 0;" />
+      <input name="email" type="email" placeholder="Your Email" required style="color: #000; width:100%; padding:10px; margin:10px 0;" />
+      <textarea name="items" placeholder="What do you want to order?" required style="color: #000; width:100%; padding:10px; margin:10px 0;"></textarea>
+      <button type="submit" class="cta">Send Order</button>
+    </form>
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>© 2025 Pix‑Nova. All rights reserved.</p>
+    <p style="margin-top: 10px; font-size: 14px; color: #ccc;">Email us: <a href="mailto:9ixnova0@gmail.com"
+        style="color: var(--accent-yellow); text-decoration: underline;">9ixnova0@gmail.com</a></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".scroll-animated .line").forEach((line, i) => {
+      gsap.to(line, {
+        scrollTrigger: {
+          trigger: line,
+          start: "top 80%",
+        },
+        duration: 1,
+        opacity: 1,
+        y: 0,
+        ease: "power3.out",
+        delay: i * 0.2
+      });
+    });
+
+    gsap.utils.toArray(".panel").forEach((panel, i) => {
+      gsap.to(panel, {
+        scrollTrigger: {
+          trigger: panel,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+        delay: i * 0.2
+      });
+    });
+  document.getElementById('orderForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const order = {
+      name: formData.get('name'),
+      number: formData.get('number'),
+      email: formData.get('email'),
+      items: formData.get('items')
+    };
+
+    try {
+      const res = await fetch('http://localhost:5000/api/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+      });
+
+      const data = await res.json();
+      alert(data.message);
+    } catch (err) {
+      alert('❌ Order failed to send. Check server.');
+      console.error(err);
+    }
+  });
+</script>
+</body>
+
+</html>
